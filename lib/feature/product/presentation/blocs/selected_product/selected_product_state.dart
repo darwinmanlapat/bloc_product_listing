@@ -4,7 +4,7 @@ class SelectedProductState extends Equatable {
   const SelectedProductState({
     this.status = Status.initial,
     Product? product,
-  }) : product = product ?? const Product();
+  }) : product = product ?? const Product.initial();
 
   final Product product;
   final Status status;

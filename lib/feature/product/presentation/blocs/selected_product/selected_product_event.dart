@@ -1,6 +1,6 @@
 part of 'selected_product_bloc.dart';
 
-class SelectedProductEvent extends Equatable {
+abstract class SelectedProductEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }

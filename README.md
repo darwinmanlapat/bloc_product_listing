@@ -14,21 +14,26 @@
 ## **Tech Stack**
 
 **State Management:** <br>
-- bloc: ^8.1.1 <br>
-- bloc_concurrency: ^0.2.1 <br>
-- flutter_bloc: ^8.1.2 <br>
-- flutter_hooks: ^0.18.6 <br>
+- bloc: ^8.1.1
+- bloc_concurrency: ^0.2.1
+- flutter_bloc: ^8.1.2
+- flutter_hooks: ^0.18.6
 
 **HTTP Client:** <br>
-- dio: ^5.1.1 <br>
+- dio: ^5.1.1 
 
 **Navigation:** <br>
-- beamer: ^1.5.3 <br>
+- beamer: ^1.5.3 
 
 **Miscellaneous:** <br>
-- shimmer: ^2.0.0 <br>
-- equatable: ^2.0.5 <br>
-- flutter_dotenv: ^5.0.2 <br>
+- shimmer: ^2.0.0
+- equatable: ^2.0.5
+- flutter_dotenv: ^5.0.2
+
+**Testing:** <br>
+- test: ^1.22.0
+- bloc_test: ^9.1.1
+- mocktail: ^0.3.0
 
 <br><hr><br>
 
@@ -44,6 +49,12 @@
 
 <br><hr><br>
 
+## **Test**
+
+- Run `flutter test`
+
+<br><hr><br>
+
 ## **Folder Structure**
 
 <br>
@@ -53,31 +64,33 @@
 ├── assets
 │   ├── images
 └── lib
-    ├── core
-    │   ├── widgets                  # Reusable  widgets
-    │   ├── helper                   # Reusable helpers
-    │   ├── service                  # Reusable services
-    │   ├── utils                    # Reusable utilities
-    │   ├── config                   # App Configuration
-    │   ├── routes
-    │   ├── enum
-    ├── feature
-    │   ├── <feature/module>
-    │   │   ├── data
-    │   │   │   ├── data_sources           
-    │   │   │   │   ├── remote        # API Calls
-        │   │   │   ├── local         # Local or Cache Data
-    │   │   │   └── repository        # Repository Implementations
-    │   │   ├── dependency_injection  # Dependency Injections
-    │   │   ├── domain
-    │   │   │   ├── model
-    │   │   │   └── repository       # Abstract Repository
-    │   │   └── presentation
-    │   │       ├── component        # Reusable widgets
-    │   │       ├── screen           # Pages
-    │   │       ├── layout           # Layout
-    │   │       └── blocs            # Providers
-    │   ├── <feature/module>
-    │   └── ...
-    
+│   ├── core
+│   │   ├── widgets                  # Reusable  widgets
+│   │   ├── helper                   # Reusable helpers
+│   │   ├── service                  # Reusable services
+│   │   ├── utils                    # Reusable utilities
+│   │   ├── config                   # App Configuration
+│   │   ├── routes
+│   │   ├── enum
+│   ├── feature
+│   │   ├── <feature/module>
+│   │   │   ├── data
+│   │   │   │   ├── data_sources           
+│   │   │   │   │   ├── remote        # API Calls
+│   │   │   │   │   ├── local         # Local or Cache Data
+│   │   │   │   └── repository        # Repository Implementations
+│   │   │   ├── dependency_injection  # Dependency Injections
+│   │   │   ├── domain
+│   │   │   │   ├── model
+│   │   │   │   └── repository       # Abstract Repository
+│   │   │   └── presentation
+│   │   │       ├── component        # Reusable widgets
+│   │   │       ├── screen           # Pages
+│   │   │       ├── layout           # Layout
+│   │   │       └── blocs            # Providers
+│   │   ├── <feature/module>
+│   │   └── ...
+│   
+└── test
+    ├── bloc  # Bloc tests
 ```

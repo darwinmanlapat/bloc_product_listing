@@ -1,16 +1,14 @@
 part of 'product_bloc.dart';
 
+@immutable
 class ProductState extends Equatable {
   const ProductState({
     this.status = Status.initial,
     List<Product>? products,
-    Product? selectedProduct,
     this.hasReachedMax = false,
-  })  : products = products ?? const [],
-        selectedProduct = selectedProduct ?? const Product();
+  }) : products = products ?? const [];
 
   final List<Product> products;
-  final Product selectedProduct;
   final Status status;
   final bool hasReachedMax;
 

@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart' show immutable;
 import 'package:product_listing/core/enum/enum.dart';
 import 'package:product_listing/feature/product/domain/model/model.dart';
 import 'package:product_listing/feature/product/domain/repository/repository.dart';
