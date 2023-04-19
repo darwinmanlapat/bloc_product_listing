@@ -50,18 +50,7 @@ void main() async {
         ],
       );
 
-      // blocTest<ProductBloc, ProductState>(
-      //   'hasReachedMax property should be true when the total limit of the list is reached',
-      //   build: () => bloc,
-      //   act: (bloc) => bloc.add(GetProducts()),
-      //   expect: () => [
-      //     ProductState(
-      //       status: Status.success,
-      //       products: mockedProducts(10),
-      //       hasReachedMax: false,
-      //     )
-      //   ],
-      // );
+    // TODO: Create a test checking if all fields are populated
     });
   });
 }

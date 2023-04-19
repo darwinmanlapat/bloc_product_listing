@@ -30,5 +30,5 @@ class ProductState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [status, products, hasReachedMax];
+  List<Object?> get props => [status, products.length, hasReachedMax];
 }
