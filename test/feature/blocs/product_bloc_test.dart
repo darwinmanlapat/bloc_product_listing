@@ -6,29 +6,22 @@ import 'package:product_listing/feature/product/domain/repository/repository.dar
 import 'package:product_listing/feature/product/presentation/blocs/product/product_bloc.dart';
 import 'package:test/test.dart';
 
-List<Product> mockedProducts({required int limit, int? length}) {
-  if (length != null) {
-    if (length <= limit) {
-      return List.generate(length, (index) => Product(id: index));
-    } else {
-      return [];
-    }
-  }
+List<Product> mockedProducts({int? limit}) =>
+    List.generate(limit ?? 10, (index) => Product(id: index));
 
-  return [];
-}
+bool mockedHasReachedMax({required int total, required int skip}) =>
+    skip >= total;
 
-bool mockedHasReachedMax({required int limit, required int length}) =>
-    length > limit;
+const totalProducts = 100;
+const eventCount = 10;
 
 class MockProductRepository extends Mock implements ProductRepository {
   @override
   Future<List<Product>> getProducts([int? startIndex]) async {
-    final index = startIndex ?? 10;
-    bool hasReachMax = mockedHasReachedMax(limit: 100, length: index + 10);
+    final skip = startIndex ?? 0;
+    final hasReachMax = mockedHasReachedMax(total: totalProducts, skip: skip);
 
-    return await Future.value(
-        hasReachMax == true ? [] : mockedProducts(limit: 100, length: 10));
+    return await Future.value(hasReachMax ? [] : mockedProducts());
   }
 }
 
@@ -47,9 +40,6 @@ void main() async {
     });
 
     group('GetProducts Event', () {
-      const eventCount = 10;
-      const limit = 100;
-
       blocTest<ProductBloc, ProductState>(
         'Products fetched should be limited to 10 per event',
         build: () => bloc,
@@ -62,10 +52,9 @@ void main() async {
           eventCount,
           (index) => ProductState(
             status: Status.success,
-            products:
-                mockedProducts(limit: limit, length: (index + 1) * eventCount),
+            products: mockedProducts(limit: (index + 1) * eventCount),
             hasReachedMax: mockedHasReachedMax(
-                limit: limit, length: (index + 1) * eventCount),
+                total: totalProducts, skip: index * eventCount),
           ),
         ),
       );
@@ -74,14 +63,34 @@ void main() async {
         'hasReachedMax property should be true when the total limit of the list is reached',
         build: () => bloc,
         act: (bloc) {
-          bloc.add(GetProducts());
+          for (var i = 0; i <= eventCount; i++) {
+            bloc.add(GetProducts());
+          }
         },
         expect: () => [
           ProductState(
             status: Status.success,
-            products: mockedProducts(limit: limit, length: 10),
-            hasReachedMax: mockedHasReachedMax(limit: 10, length: 10),
+            products: mockedProducts(limit: 100),
+            hasReachedMax: true,
           ),
+        ],
+        skip: eventCount,
+      );
+
+      blocTest<ProductBloc, ProductState>(
+        'state should be Status.error when encountered an error',
+        build: () => bloc,
+        act: (bloc) {
+          bloc.on<GetProductsException>(
+              (event, emit) => emit(const ProductState(
+                    status: Status.error,
+                  )));
+          bloc.add(GetProductsException());
+        },
+        expect: () => [
+          const ProductState(
+            status: Status.error,
+          )
         ],
       );
     });

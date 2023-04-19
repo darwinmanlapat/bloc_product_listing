@@ -10,3 +10,8 @@ class GetProducts extends ProductEvent {
   @override
   List<Object?> get props => [];
 }
+
+class GetProductsException extends ProductEvent {
+  @override
+  List<Object?> get props => [];
+}
