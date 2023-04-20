@@ -13,3 +13,8 @@ class GetProductById extends SelectedProductEvent {
   @override
   List<Object?> get props => [id];
 }
+
+class GetProductByIdException extends SelectedProductEvent {
+  @override
+  List<Object?> get props => [];
+}
