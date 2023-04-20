@@ -1,8 +1,8 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:product_listing/core/enum/enum.dart';
 import 'package:product_listing/feature/product/domain/model/model.dart';
@@ -13,8 +13,8 @@ import 'package:test/test.dart';
 late final List<Product> mockProducts;
 
 Future<void> readJson() async {
-  final String response =
-      await rootBundle.loadString('assets/json/products_mock_data.json');
+  final response =
+      File('assets/json/products_mock_data.json').readAsStringSync();
   final decodedResponse = await json.decode(response);
   final data = (decodedResponse['products'] as List<dynamic>)
       .cast<Map<String, dynamic>>();
