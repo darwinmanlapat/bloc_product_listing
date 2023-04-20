@@ -92,5 +92,9 @@
 │   │   └── ...
 │   
 └── test
-    ├── bloc  # Bloc tests
+    └── <feature/module>
+        ├── data                      # Data Layer Tests
+        ├── dependency_injection      # Dependency Injection Tests
+        ├── domain                    # Domain Layer Tests
+        └── blocs                     # Bloc Tests
 ```
