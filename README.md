@@ -4,9 +4,9 @@
 
 | **DEPENDENCY** | **VERSION** |
 |----------------|-------------|
-| Flutter        | 3.7.10      |
-| Dart           | 2.19.6      |
-| Xcode          | 14.2        |
+| Flutter        | 3.16.0      |
+| Dart           | 3.2.0       |
+| Xcode          | 15.0.1      |
 | Android Studio | 11.0+13     |
 
 <br><hr><br>

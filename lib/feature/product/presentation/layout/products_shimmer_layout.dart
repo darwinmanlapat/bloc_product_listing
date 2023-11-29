@@ -7,8 +7,8 @@ class ProductsShimmerLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
+    return const Column(
+      children: [
         ContainerShimmer(
           height: 240,
           margin: EdgeInsets.only(bottom: 12),

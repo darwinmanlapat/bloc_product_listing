@@ -62,7 +62,16 @@ class ProductLayout extends HookWidget {
                                 fontWeight: FontWeight.w700,
                                 color: Color(0xFF05B89D),
                               ),
-                            )
+                            ),
+                            Text(
+                              '\$${product.price} | Stock: ${product.stock}',
+                              style: const TextStyle(
+                                fontFamily: 'Clear Sans',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF404453),
+                              ),
+                            ),
                           ],
                         ),
                       ),
