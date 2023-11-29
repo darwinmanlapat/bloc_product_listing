@@ -39,11 +39,11 @@
 
 ## **Setting Up Dev Local Environment**
 
-- Install [Flutter](https://docs.flutter.dev/get-started/install), [Android Studio](https://developer.android.com/studio/install), and [Xcode](https://apps.apple.com/us/app/xcode/id497799835).
+- Install [Flutter](https://docs.flutter.dev/get-started/install) manually or using FVM (https://fvm.app/docs/getting_started/installation), [Android Studio](https://developer.android.com/studio/install), and [Xcode](https://apps.apple.com/us/app/xcode/id497799835).
 
-- Clone the project from GitHub.
+- Clone the project from GitHub (https://github.com/darwinmanlapat/bloc_product_listing.git).
 
-- Create .env file for environment variables (https://docs.google.com/document/d/16KQ1X6hQ5IL5KEhvrVDH4K5OQv7mUccFPo-QYhKSiO4/edit?usp=sharing)
+- Create .env file for environment variables (https://docs.google.com/document/d/1LqW43Y5xLz5xWtfANveMOwpz1OS49DVMmiIKJpXivjk/edit?usp=sharing)
 
 - To run the app, run flutter run. If you are using Visual Studio Code, go to Run and Debug and choose the [launch configuration](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations).
 
